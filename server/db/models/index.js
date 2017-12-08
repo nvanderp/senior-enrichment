@@ -9,4 +9,10 @@ const db = require('../index');
 
 // This is also probably a good place for you to set up your associations
 
+const Student = require('./Student');
+const Campus = require('./Campus');
+
+Student.belongsTo(Campus, {as: 'campus'});
+Campus.hasMany(Student);
+
 module.exports = db
