@@ -4,69 +4,75 @@ import { writeCampusName, writeCampusDesc, editCampus } from '../store';
 
 function EditCampusEntry(props) {
     
-    const { newCampusEntry, campus, students, otherStudents, handleNameChange, handleDescChange, handleSubmit } = props;
+    const { newCampusEntry, campus, students, otherStudents, handleNameChange, handleDescChange, handleSubmit} = props;
 
     return (
         <div>
             {
                 !campus ? null
                 :
-                <form onSubmit={evt => handleSubmit(newCampusEntry, campus, evt)}>
-                    <div>
-                        <h4>Edit {campus.name}!</h4>
-                        <label>Name: </label>
-                        <input
-                            value={newCampusEntry.name}
-                            onChange={handleNameChange}
-                            className='form-control'
-                            type='text'
-                            name='name'
-                            placeholder={campus.name}
-                        />
-                        <label>Description: </label>
-                        <input
-                            value={newCampusEntry.desc}
-                            onChange={handleDescChange}
-                            className='form-control'
-                            type='text'
-                            name='desc'
-                            placeholder={campus.desc}
-                        />
-                    </div>
-                    <div>
-                        <label>Current Students: </label>
-                        {
-                            students.length === 0 ? <p>Sorry, no students here!</p>
-                            : <select>
-                                {
-                                    students.map(student => {
-                                        return <option key={student.id}>
-                                            {student.fullName}
-                                        </option>;
-                                    })
-                                }
-                            </select>
-                        }
-                    </div>
-                    <div>
-                        <label>Add Student: </label>
-                        {
-                            otherStudents.length === 0 ? <p>Sorry, no students here!</p>
-                            : <select>
-                                {
-                                    otherStudents.map(student => {
-                                        return <option key={student.id}>
-                                            {student.fullName}
-                                        </option>;
-                                    })
-                                }
-                            </select>
-                        }
-                    </div>
-                    <span>
-                        <button type="submit">Submit campus edits!</button>
-                    </span>
-                </form>
+                <div>
+                    <form onSubmit={evt => handleSubmit(newCampusEntry, campus, evt)}>
+                        <div>
+                            <h4>Edit {campus.name}!</h4>
+                            <label>Name: </label>
+                            <input
+                                value={newCampusEntry.name}
+                                onChange={handleNameChange}
+                                className='form-control'
+                                type='text'
+                                name='name'
+                                // placeholder={campus.name}
+                            />
+                            <label>Description: </label>
+                            <input
+                                value={newCampusEntry.desc}
+                                onChange={handleDescChange}
+                                className='form-control'
+                                type='text'
+                                name='desc'
+                                // placeholder={campus.desc}
+                            />
+                        </div>
+                        <span>
+                            <button type="submit">Submit campus edits!</button>
+                        </span>
+                        <div>
+                            <label>Current Students: </label>
+                            {
+                                students.length === 0 ? <p>Sorry, no students here!</p>
+                                : <select>
+                                    {
+                                        students.map(student => {
+                                            return <option key={student.id}>
+                                                {student.fullName}
+                                            </option>
+                                        })
+                                    }
+                                </select>
+                            }
+                        </div>
+                        
+                    </form>
+                    <form>
+                        <div>
+                            <label>Add Student: </label>
+                            {
+                                otherStudents.length === 0 ? <p>Sorry, no students here!</p>
+                                : <select id='add-student'>
+                                    {
+                                        otherStudents.map(student => {
+                                            return <option key={student.id} value={student}>
+                                                {student.fullName}
+                                            </option>;
+                                        })
+                                    }
+                                </select>
+                            }
+                            <button onClick=''>Add to {campus.name} campus</button>
+                        </div>
+                    </form>
+                </div>
             }
         </div>
     );
