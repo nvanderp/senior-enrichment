@@ -13,7 +13,8 @@ export function writeCampusDesc(desc) {
 
 const initialState = {
     name: '',
-    desc: ''
+    desc: '',
+    imageUrl: ''
 }
 
 export default function reducer(state = initialState, action) {

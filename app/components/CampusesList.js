@@ -12,19 +12,20 @@ function CampusesList(props) {
             <button>
                 <Link to='/campuses/new-campus-entry'>Create campus</Link>
             </button>
-            <ul>
-                { 
-                    campuses.map(campus => {
-                        return (
-                            <li key={campus.id}>
-                                <Link to={`/campuses/${campus.id}`}> {campus.name}</Link>
-                                <button onClick={ evt => handleDelete(campus, evt) }>Delete</button>
-                                <button><Link to={`/campuses/edit-campus-entry/${campus.id}`}>Edit</Link></button>
-                            </li>
-                        )
-                    })
-                }
-            </ul>
+            { 
+                campuses.map(campus => {
+                    return (
+                        <div key={campus.id}>
+                            <img src={campus.imageUrl} />
+                            <br />
+                            <Link to={`/campuses/${campus.id}`}> {campus.name}</Link>
+                            <br />
+                            <button onClick={ evt => handleDelete(campus, evt) }>Delete</button>
+                            <button><Link to={`/campuses/edit-campus-entry/${campus.id}`}>Edit</Link></button>
+                        </div>
+                    )
+                })
+            }
         </div>
     )
 }
