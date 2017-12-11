@@ -4,7 +4,7 @@ import { writeStudentName, writeStudentEmail, writeStudentGPA, selectStudentCamp
 
 function NewStudentEntry(props) {
     
-    const { newStudentEntry, campuses, name, email, gpa, campusId, handleNameChange, handleEmailChange, handleGPAChange, handleCampusChange, handleSubmit } = props;
+    const { newStudentEntry, campuses, campusId, handleNameChange, handleEmailChange, handleGPAChange, handleCampusChange, handleSubmit } = props;
 
     return (
         <form onSubmit={evt => handleSubmit(newStudentEntry, evt)}>
@@ -12,7 +12,7 @@ function NewStudentEntry(props) {
                 <h4>Create a student!</h4>
                 <label>Name: </label>
                 <input
-                    value={name}
+                    value=''
                     onChange={handleNameChange}
                     className='form-control'
                     type='text'
@@ -22,7 +22,7 @@ function NewStudentEntry(props) {
                 <br />
                 <label>Email: </label>
                 <input
-                    value={email}
+                    value=''
                     onChange={handleEmailChange}
                     className='form-control'
                     type='text'
@@ -32,7 +32,7 @@ function NewStudentEntry(props) {
                 <br />
                 <label>GPA: </label>
                 <input
-                    value={gpa}
+                    value=''
                     onChange={handleGPAChange}
                     className='form-control'
                     type='text'
@@ -61,9 +61,6 @@ function NewStudentEntry(props) {
 
 const mapStateToProps = function(state, ownProps) {
     return {
-        name: state.name,
-        email: state.email,
-        gpa: state.gpa,
         campusId: state.campusId,
         campuses: state.campuses,
         newStudentEntry: state.newStudentEntry

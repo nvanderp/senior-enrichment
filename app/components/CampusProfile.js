@@ -9,22 +9,27 @@ function CampusProfile(props) {
         <div>
             {
                 !campus ? null
-                : <h2>{campus.name} Campus</h2>
-            }
-            <h4>Description</h4>
-                <p>{campus.description}</p>
-            <h4>Students</h4>
-            {
-                students.length === 0 ? <p>Sorry, no students here!</p>
-                : <ul>
-                    {
-                        students.map(student => {
-                            return <li key={student.id}>
-                                <Link to={`/students/${student.id}`}>{student.fullName}</Link>
-                            </li>;
-                        })
-                    }
-                </ul>
+                :
+                <div>
+                    <h2>{campus.name} Campus</h2>
+                    <h4>Description</h4>
+                        <p>{campus.description}</p>
+                    <h4>Students</h4>
+                    <div>
+                        {
+                            students.length === 0 ? <p>Sorry, no students here!</p>
+                            : <ul>
+                                {
+                                    students.map(student => {
+                                        return <li key={student.id}>
+                                            <Link to={`/students/${student.id}`}>{student.fullName}</Link>
+                                        </li>;
+                                    })
+                                }
+                            </ul>
+                        }
+                    </div>
+                </div>
             }
         </div>
     )
