@@ -12,7 +12,7 @@ function NewStudentEntry(props) {
                 <h4>Create a student!</h4>
                 <label>Name: </label>
                 <input
-                    value=''
+                    value={newStudentEntry.name}
                     onChange={handleNameChange}
                     className='form-control'
                     type='text'
@@ -22,7 +22,7 @@ function NewStudentEntry(props) {
                 <br />
                 <label>Email: </label>
                 <input
-                    value=''
+                    value={newStudentEntry.email}
                     onChange={handleEmailChange}
                     className='form-control'
                     type='text'
@@ -32,7 +32,7 @@ function NewStudentEntry(props) {
                 <br />
                 <label>GPA: </label>
                 <input
-                    value=''
+                    value={newStudentEntry.gpa}
                     onChange={handleGPAChange}
                     className='form-control'
                     type='text'

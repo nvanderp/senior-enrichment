@@ -66,7 +66,7 @@ export function editStudent(student, history) {
                 editedStudent = editedStudent[1]
                 const action = replaceStudent(editedStudent);
                 dispatch(action);
-                history.push(`/students/${editedStudent.id}`);
+                if (history) history.push(`/students/${editedStudent.id}`);
             })
     }
 }

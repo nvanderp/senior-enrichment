@@ -37,30 +37,30 @@ function EditCampusEntry(props) {
                         <label>Current Students: </label>
                         {
                             students.length === 0 ? <p>Sorry, no students here!</p>
-                            : <ul>
+                            : <select>
                                 {
                                     students.map(student => {
-                                        return <li key={student.id}>
+                                        return <option key={student.id}>
                                             {student.fullName}
-                                        </li>;
+                                        </option>;
                                     })
                                 }
-                            </ul>
+                            </select>
                         }
                     </div>
                     <div>
-                        <label>Other Students: </label>
+                        <label>Add Student: </label>
                         {
                             otherStudents.length === 0 ? <p>Sorry, no students here!</p>
-                            : <ul>
+                            : <select>
                                 {
                                     otherStudents.map(student => {
-                                        return <li key={otherStudent.id}>
-                                            {otherStudent.fullName}
-                                        </li>;
+                                        return <option key={student.id}>
+                                            {student.fullName}
+                                        </option>;
                                     })
                                 }
-                            </ul>
+                            </select>
                         }
                     </div>
                     <span>
