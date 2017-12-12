@@ -24,6 +24,7 @@ function EditCampusEntry(props) {
                                 name='name'
                                 // placeholder={campus.name}
                             />
+                            <br/>
                             <label>Description: </label>
                             <input
                                 value={newCampusEntry.desc}
@@ -69,7 +70,7 @@ function EditCampusEntry(props) {
                                     }
                                 </select>
                             }
-                            <button onClick=''>Add to {campus.name} campus</button>
+                            <button onClick={() => alert("here's where there'd be a function :(")}>Add to {campus.name} campus</button>
                         </div>
                     </form>
                 </div>
