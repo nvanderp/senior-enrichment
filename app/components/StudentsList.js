@@ -8,25 +8,25 @@ function StudentsList(props) {
     
     return (
         <div>
-            <h2>Our Students:</h2>
-            <button>
-                <Link to='/students/new-student-entry'>Create student</Link>
-            </button>
-            <ol>
+            <h2>Our Students</h2>
+            <table className='student-table'>
                 { 
                     students.map(student => {
                         let curCampus = campuses.filter(campus => campus.id === student.campusId)
                         return (
-                            <li key={student.id}>
-                                <Link to={`/students/${student.id}`}>{student.fullName}</Link>,
-                                <Link to={`/campuses/${curCampus[0].id}`}>{curCampus[0].name} campus</Link>
+                            <tr className='student-row' key={student.id}>
+                                <td><Link to={`/students/${student.id}`}>{student.fullName}</Link></td>
+                                <td>@ <Link to={`/campuses/${curCampus[0].id}`}>{curCampus[0].name} campus</Link></td>
                                 <button onClick={ evt => handleDelete(student, evt) }>Delete</button>
-                                <button><Link to={`/students/edit-student-entry/${student.id}`}>Edit</Link></button>
-                            </li>
+                                <Link to={`/students/edit-student-entry/${student.id}`}><button>Edit</button></Link>
+                            </tr>
                         )
                     })
                 }
-            </ol>
+            </table>
+            <div className='create-button-container'>
+                <Link to='/students/new-student-entry'><button>Create student</button></Link>
+            </div>
         </div>
     )
 }

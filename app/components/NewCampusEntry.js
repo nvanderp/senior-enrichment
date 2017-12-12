@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { writeCampusName, writeCampusDesc, postCampus } from '../store';
+import { writeCampusName, writeCampusDesc, writeCampusUrl, postCampus } from '../store';
 
 function NewCampusEntry(props) {
     
-    const { newCampusEntry, name, desc, handleNameChange, handleDescChange, handleSubmit } = props;
+    const { newCampusEntry, name, desc, url, handleNameChange, handleDescChange, handleUrlChange, handleSubmit } = props;
 
     return (
         <form onSubmit={evt => handleSubmit(newCampusEntry, evt)}>
@@ -28,6 +28,15 @@ function NewCampusEntry(props) {
                     name='desc'
                     placeholder='Enter campus description'
                 />
+                <label>Image URL: </label>
+                <input
+                    value={url}
+                    onChange={handleUrlChange}
+                    className='form-control'
+                    type='text'
+                    name='url'
+                    placeholder='Enter campus image URL'
+                />
             </div>
             <span>
                 <button type="submit">Submit campus!</button>
@@ -40,6 +49,7 @@ const mapStateToProps = function(state, ownProps) {
     return {
         name: state.name,
         desc: state.desc,
+        url: state.imageUrl,
         newCampusEntry: state.newCampusEntry
     }
 }
@@ -51,6 +61,9 @@ const mapDispatchToProps = function(dispatch, ownProps) {
         },
         handleDescChange(evt) {
             dispatch(writeCampusDesc(evt.target.value));
+        },
+        handleUrlChange(evt) {
+            dispatch(writeCampusUrl(evt.target.value));
         },
         handleSubmit(newCampusEntry, evt) {
             evt.preventDefault();

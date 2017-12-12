@@ -10,7 +10,8 @@ function CampusProfile(props) {
             {
                 !campus ? null
                 :
-                <div>
+                <div className='campus-profile-container'>
+                    <img src={campus.imageUrl}/>
                     <h2>{campus.name} Campus</h2>
                     <h4>Description</h4>
                         <p>{campus.description}</p>

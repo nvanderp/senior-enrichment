@@ -10,12 +10,10 @@ function Navbar(props) {
             <h1>
                 Welcome to the Margaret Hamilton Interplanetary Academy of JavaScript!
             </h1>
-            <button>
-                <Link to='/campuses'>Campuses</Link>
-            </button>
-            <button>
-                <Link to='/students'>Students</Link>
-            </button>
+            <div className='navbar'>
+                <Link to='/campuses'><button>Campuses</button></Link>
+                <Link to='/students'><button>Students</button></Link>
+            </div>
         </nav>
     );
 }
